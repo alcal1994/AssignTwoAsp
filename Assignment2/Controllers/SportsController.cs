@@ -6,8 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Assignment2.Models;
 
-namespace Assignment2.Models
+namespace Assignment2.Controllers
 {
     
     public class SportsController : Controller
@@ -111,11 +112,25 @@ namespace Assignment2.Models
         // POST: Sports/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int? id)
         {
-            Sport sport = db.Sports.Find(id);
-            db.Sports.Remove(sport);
-            db.SaveChanges();
+            // Sport sport = db.Sports.Find(id);
+            //db.Sports.Remove(sport);
+            //db.SaveChanges();
+
+            // new repository code replacing line above
+            if (id == null)
+            {
+                return View("Error");
+            }
+            Athlete athlete = db.Athletes.SingleOrDefault(a => a.Pk_Athlete_Id == id);
+            if (athlete == null)
+            {
+                return View("Error");
+            }
+
+            db.Delete(athlete);
+        
             return RedirectToAction("Index");
         }
 

@@ -43,5 +43,10 @@ namespace Assignment2.Models
                 .WithOptional(e => e.Sport)
                 .HasForeignKey(e => e.Fk_Sport_Id);
         }
+
+        internal void Delete(Athlete athlete)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

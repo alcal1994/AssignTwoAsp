@@ -200,6 +200,8 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Athlete.cs" />
     <Compile Include="Models\DataContext.cs" />
+    <Compile Include="Models\EFAthletesRepository.cs" />
+    <Compile Include="Models\IAthletesRepository.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Sport.cs" />
